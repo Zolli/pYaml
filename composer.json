@@ -3,15 +3,15 @@
     "description": "pYaml",
     "authors": [
         {
-            "name": "Zoltán Borsos",
+            "name": "Zoltan Borsos",
             "email": "zolli07@gmail.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": { 
         "symfony/yaml": "2.4.*@dev"
     },
     "autoload": {
         "psr-0": {"pYaml": "src/"}
-    },
-    "minimum-stability": "dev"
+    }
 }
