@@ -1,0 +1,35 @@
+localization: 'en'
+
+database:
+  type: 'mysql'
+  host: 'localhost'
+  name : 'test'
+  username: 'root'
+  password: ''
+  port: 3306
+
+updater:
+  updateChannels:
+    - http://ec.zolli.tk/update/stable
+    - http://ec.zolli.tk/update/releasePreview
+    - http://ec.zolli.tk/update/development
+    - http://ec.zolli.tk/update/ci
+  autoUpdate: false
+  notifyUpdate: 'true'
+
+nagyon:
+  mely:
+    teszt:
+      elem:
+        ami:
+          meg:
+            melyebb: 'tényleg az'
+
+test:
+  listDemo:
+    - This
+    - is
+    - a
+    - fucking
+    - list
+    - .
