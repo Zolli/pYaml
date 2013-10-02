@@ -17,6 +17,9 @@ updater:
   autoUpdate: false
   notifyUpdate: 'true'
 
+array:
+  - {name: John Smith, age: 33}
+
 nagyon:
   mely:
     teszt:

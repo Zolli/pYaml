@@ -1,7 +1,7 @@
 <?php
-namespace pYaml;
+namespace pYaml\Access;
 
-class pYamlList {
+class pYamlList implements IpYamlArrayAccess {
     
     private $array = null;
     
@@ -27,6 +27,10 @@ class pYamlList {
     
     public function set($key, $val) {
         $this->array[$key] = $val;
+    }
+    
+    public function getLength() {
+        return count($this->array);
     }
     
 }

@@ -5,7 +5,13 @@ include_once('vendor/autoload.php');
 $instance = pYaml\pYaml::getInstance();
 $instance->init("config.yaml");
 
-$section = $instance->get("nagyon.mely.teszt.elem.ami.meg.melyebb");
+$section = $instance->get("array");
+
+if($section->isArray()) {
+    die(var_dump($section->getArray()));
+} else {
+    die("noarray");
+}
 
 /*if($section->isBoolean()) {
     die(var_dump($section->getBoolean()));

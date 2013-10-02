@@ -1,5 +1,5 @@
 <?php
-namespace pYaml;
+namespace pYaml\Interfaces;
 
 interface IYamlSection {
     
@@ -9,6 +9,8 @@ interface IYamlSection {
     public function getInt();
     public function isBoolean();
     public function getBoolean();
+    public function isArray();
+    public function getArray();
     public function isList();
     public function getList();
     
@@ -33,5 +35,12 @@ interface IYamlSection {
      * @return int The number of childrens
      */
     public function hasChilds();
+    
+    /**
+     * Returns the object contained object
+     * 
+     * @return mixed
+     */
+    public function getRaw();
     
 }

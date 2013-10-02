@@ -3,7 +3,12 @@
         "symfony/yaml": "2.4.*@dev"
     },
     "autoload": {
-        "psr-0": {"pYaml": "src/"}
+        "psr-0": {
+            "pYaml": "src/",
+            "pYaml/Access": "src/Access/",
+            "pYaml/Interfaces": "src/Interfaces/",
+            "pYaml/Iterator": "src/Iterator/"
+        }
     },
     "minimum-stability": "dev"
 }

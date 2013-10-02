@@ -1,5 +1,5 @@
 <?php
-namespace pYaml;
+namespace pYaml\Iterator;
 
 class pYamlListIterator implements \Iterator {
     private $position = 0;

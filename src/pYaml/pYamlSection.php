@@ -1,7 +1,7 @@
 <?php
 namespace pYaml;
 
-class pYamlSection implements IYamlSection {
+class pYamlSection implements \pYaml\Interfaces\IYamlSection {
     
     private $object = null;
     private $sectionName = null;
@@ -65,7 +65,18 @@ class pYamlSection implements IYamlSection {
      * @return \pYaml\pYamlList
      */
     public function getList() {
-        return new pYamlList($this->object);
+        return new \pYaml\Access\pYamlList($this->object);
+    }
+    
+    public function isArray() {
+        if(is_array($this->object[0])) {
+            return true;
+        }
+        return false;
+    }
+    
+    public function getArray() {
+        return new pYaml\Access\pYamlArray($this->object[0]);
     }
     
     public function getKeys() {
@@ -85,6 +96,10 @@ class pYamlSection implements IYamlSection {
         }
         
         return $result;
+    }
+    
+    public function getRaw() {
+        return $this->object;
     }
     
 }
