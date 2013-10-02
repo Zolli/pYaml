@@ -1,4 +1,13 @@
-{ 
+{
+    "name": "zolli/pyaml",
+    "description": "pYaml",
+    "authors": [
+        {
+            "name": "Zoltan Borsos",
+            "email": "zolli07@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
     "require": { 
         "symfony/yaml": "2.4.*@dev"
     },
