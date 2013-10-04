@@ -23,7 +23,7 @@ class pYamlArrayIterator implements \Iterator {
             $this->position = $this->position - 1;
         }
         
-        return this
+        return $this;
     }
 
     function current() {

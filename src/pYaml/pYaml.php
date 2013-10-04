@@ -53,55 +53,14 @@ class pYaml {
     /**
      * Returns a pYamlSection by the path tree
      * 
-     * @param  $path The node location
+     * @param \pYaml\nodeSelector\nodeSelector  $path The node location
      * @return pYamlSection
      */
-    public function get($path) {
-        $result = $this->pathToChunk($path);
-        $sectionParent = $this->getParentName($path);
+    public function get(\pYaml\nodeSelector\nodeSelector $selector) {
+        $selector->setParsedYaml($this->parseResult);
+        $result = $selector->getNode();
+        $sectionParent = $selector->getParentName();
         return new pYamlSection($result, $sectionParent);
-    }
-    
-    /**
-     * Returns the parent of this selector
-     * //TODO: NODE SELECTOR
-     * 
-     * @param string $path Node path
-     * @return string The parent name, if this is a rott element, returns "ROOT"
-     */
-    private function getParentName($path) {
-        $pathParts = explode(".", $path);
-        $partsCount = count($pathParts);
-        $result = null;
-        
-        if($partsCount >= 2) {
-            $result = $pathParts[$partsCount-1];
-        } else {
-            $result = 'ROOT';
-        }
-        
-        return $result;
-    }
-    
-    /**
-     * Return the mapped result
-     * 
-     * @param string $pathString
-     * @return mixed
-     */
-    private function pathToChunk($pathString) {
-        $pathParts = explode(".", $pathString);
-        
-        $result = $this->parseResult;
-        foreach($pathParts as $part) {
-            if(isset($result["$part"])) {
-                $result = $result["$part"];
-            } else {
-                throw Exception\nodeNotFoundException($part, $pathString);
-            }
-        }
-        
-        return $result;
     }
     
     /**

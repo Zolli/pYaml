@@ -16,7 +16,8 @@
             "pYaml": "src/",
             "pYaml/Access": "src/Access/",
             "pYaml/Interfaces": "src/Interfaces/",
-            "pYaml/Iterator": "src/Iterator/"
+            "pYaml/Iterator": "src/Iterator/",
+            "pYaml/nodeSelector": "src/nodeSelector"
         }
     },
     "minimum-stability": "dev"
