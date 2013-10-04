@@ -16,6 +16,8 @@ class pYamlListIterator implements \Iterator {
         if($this->position > 0) {
             $this->position = $this->position - 1;
         }
+        
+        return $this;
     }
 
     function current() {
@@ -30,6 +32,8 @@ class pYamlListIterator implements \Iterator {
         if($this->position < $this->length) {
             $this->position++;
         }
+        
+        return $this;
     }
 
     function valid() {

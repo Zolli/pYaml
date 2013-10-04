@@ -8,12 +8,12 @@ $instance->init("config.yaml");
 $section = $instance->get("array");
 
 if($section->isArray()) {
-    die(var_dump($section->getArray()));
+    die(var_dump($section->getArray()->getIterator()->next()->current()));
 } else {
     die("noarray");
 }
 
-/*if($section->isBoolean()) {
+if($section->isBoolean()) {
     die(var_dump($section->getBoolean()));
 } else {
     die("nobool");
@@ -23,7 +23,7 @@ if($section->isInt()) {
     die(var_dump($section->getInt()));
 } else {
     die("noint");
-}*/
+}
 
 if($section->isString()) {
     die(var_dump($section->getString()));

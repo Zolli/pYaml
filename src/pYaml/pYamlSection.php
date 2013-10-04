@@ -76,7 +76,7 @@ class pYamlSection implements \pYaml\Interfaces\IYamlSection {
     }
     
     public function getArray() {
-        return new pYaml\Access\pYamlArray($this->object[0]);
+        return new \pYaml\Access\pYamlArray($this->object[0]);
     }
     
     public function getKeys() {

@@ -89,7 +89,7 @@ class pYaml {
             if(isset($result["$part"])) {
                 $result = $result["$part"];
             } else {
-                //Throw exception
+                throw Exception\nodeNotFoundException($part, $pathString);
             }
         }
         
