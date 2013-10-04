@@ -3,25 +3,25 @@ namespace pYaml;
 
 use \Symfony\Component\Yaml\Yaml as YAML;
 
+/**
+ * 
+ */
 class pYaml {
     
     /**
-     * A példányt tartalmazó változó
-     * 
+     * Construct data holder
      * @var pYaml instance
      */
     private static $instance = null;
     
     /**
-     * Az értelmezett Yaml fájlt tartalmazza
-     * 
+     * Contains the parsed result of the YAML file
      * @var array Egy asszociatív tömb
      */
     public $parseResult = null;
     
     /**
-     * Visszaadja az egyetlen létező példányt
-     * 
+     * Singletin getter
      * @return pYaml instance
      */
     public static function getInstance() {
@@ -33,12 +33,12 @@ class pYaml {
     }
     
     /**
-     * Beolvassa a kapott fájl tartalmát és a Symfony YAML komponense segítségével
-     * egy asszociatív tömbbé alakítja
+     * Reads the given file and, parse this
+     * with Symfony Yaml component
      * 
-     * @param string $file A beolvasandó fájl elérési útvonala (abszolút)
-     * @return array Asszociatív tömb
-     * @throws Exception Amennyiben a fájl nem null
+     * @param string $file The file to be parsed
+     * @return array Assoc array
+     * @throws Exception If the file is not provided
      */
     public function init($file = null) {
         if($file == null) {
@@ -51,9 +51,9 @@ class pYaml {
     }
     
     /**
-     * Visszaad egy stringet a yaml fájlból a bemenet alapján
+     * Returns a pYamlSection by the path tree
      * 
-     * @param  $path A hely a yaml fájlban ahonna a stringet kérjük
+     * @param  $path The node location
      * @return pYamlSection
      */
     public function get($path) {
@@ -62,6 +62,13 @@ class pYaml {
         return new pYamlSection($result, $sectionParent);
     }
     
+    /**
+     * Returns the parent of this selector
+     * //TODO: NODE SELECTOR
+     * 
+     * @param string $path Node path
+     * @return string The parent name, if this is a rott element, returns "ROOT"
+     */
     private function getParentName($path) {
         $pathParts = explode(".", $path);
         $partsCount = count($pathParts);
@@ -77,8 +84,9 @@ class pYaml {
     }
     
     /**
+     * Return the mapped result
      * 
-     * @param type $pathString
+     * @param string $pathString
      * @return mixed
      */
     private function pathToChunk($pathString) {
@@ -97,9 +105,9 @@ class pYaml {
     }
     
     /**
-     * Visszaadja azt az asszociatív tömböt amit a Symfony Yaml értelmezője visszaadott
+     * Returns the result from Symfony's Yaml parser component
      * 
-     * @return array
+     * @return array Assoc result array
      */
     public function getRawResult() {
         return $this->parseResult;
