@@ -1,7 +1,7 @@
 <?php
 namespace pYaml\Access;
 
-class pYamlList implements \pYaml\Access\IpYamlArrayAccess {
+class pYamlList implements \pYaml\Interfaces\IpYamlArrayAccess {
     
     /**
      * Holds the constructed data
@@ -23,7 +23,7 @@ class pYamlList implements \pYaml\Access\IpYamlArrayAccess {
      * @return \pYaml\Iterator\pYamlListIterator
      */
     public function getIterator() {
-        return new pYamlListIterator($this->array);
+        return new \pYaml\Iterator\pYamlListIterator($this->array);
     }
     
     /**
