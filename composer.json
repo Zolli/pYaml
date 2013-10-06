@@ -1,6 +1,6 @@
 {
     "name": "zolli/pyaml",
-    "description": "Yet another PHP library for easy YAML reading",
+    "description": "Yet another PHP library for easy YAML reading... Oh, and editing too.",
     "authors": [
         {
             "name": "Zoltan Borsos",
