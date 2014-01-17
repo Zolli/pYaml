@@ -1,7 +1,10 @@
-<?php
-namespace pYaml;
+<?php namespace Zolli\pYaml;
 
-class pYamlSection implements \pYaml\Interfaces\IYamlSection {
+use Zolli\pYaml\Interfaces\IYamlSection;
+use Zolli\pYaml\Access\pYamlArray;
+use Zolli\pYaml\Access\pYamlList;
+
+class pYamlSection implements IYamlSection {
     /**
      * Holds the current section array
      * @var array Object
@@ -103,10 +106,10 @@ class pYamlSection implements \pYaml\Interfaces\IYamlSection {
     
     /**
      * Return a pYamlList object based on the current object
-     * @return \pYaml\Access\pYamlList
+     * @return Zolli\pYaml\Access\pYamlList
      */
     public function getList() {
-        return new \pYaml\Access\pYamlList($this->object);
+        return new pYamlList($this->object);
     }
 
     /**
@@ -122,17 +125,17 @@ class pYamlSection implements \pYaml\Interfaces\IYamlSection {
 
     /**
      * Return a pYamlArray object based on current object
-     * @return \pYaml\Access\pYamlArray
+     * @return Zolli\pYaml\Access\pYamlArray
      */
     public function getArray() {
-        return new \pYaml\Access\pYamlArray($this->object);
+        return new pYamlArray($this->object);
     }
 
     /**
      * Return the keys of the current section
      */
     public function getKeys() {
-        throw new \Exception("Not yet implemented");
+        throw new Exception("Not yet implemented");
     }
 
     /**

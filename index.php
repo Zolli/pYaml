@@ -2,11 +2,14 @@
 
 include_once('vendor/autoload.php');
 
+use Zolli\pYaml\pYaml;
+use Zolli\pYaml\nodeSelector\nodeSelector;
+
 //Get a new object and pass the file in constructor
-$instance = new \pYaml\pYaml("config.yaml");
+$instance = new pYaml("config.yaml");
 
 //Initialize a new nodeSelector and pass this object to pYaml class get() function
-$selector = new \pYaml\nodeSelector\nodeSelector("array");
+$selector = new nodeSelector("database.name");
 $section = $instance->get($selector);
 
 //Set a value in parsed file, and save the result to output.yaml
@@ -49,18 +52,19 @@ if($selector->isValid()) {
         echo "<b>And this is the result:</b> " . $section->getInt();
         exit;
     }
-
+    
     if($section->isString()) {
         echo "<b>The result is a string!</b><br />";
         echo "<b>And this is the result:</b> " . $section->getString();
         exit;
     }
-
+    
     if($section->isList()) {
         echo "<b>The result is a list!</b><br />";
         echo "<b>And this is the first element of the result:</b> " . $section->getList()->getIterator()->current();
         exit;
     }
+
 } else {
     //Report the error
     die("<b>This selector is not valid!<br />Error found this part of the selector:</b> " . $selector->getErrorNode() . "<br /><b>Complete selector:</b> " . $selector->getSelectorString());

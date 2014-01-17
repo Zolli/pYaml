@@ -13,11 +13,7 @@
     },
     "autoload": {
         "psr-0": {
-            "pYaml": "src/",
-            "pYaml/Access": "src/Access/",
-            "pYaml/Interfaces": "src/Interfaces/",
-            "pYaml/Iterator": "src/Iterator/",
-            "pYaml/nodeSelector": "src/nodeSelector"
+            "Zolli\\pYaml": "src/"
         }
     },
     "minimum-stability": "dev"

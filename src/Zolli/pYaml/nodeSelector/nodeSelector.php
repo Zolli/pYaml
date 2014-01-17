@@ -1,6 +1,6 @@
-<?php
+<?php namespace Zolli\pYaml\nodeSelector;
 
-namespace pYaml\nodeSelector;
+use Zolli\pYaml\Exception\nodeNotFoundException;
 
 class nodeSelector {
 
@@ -49,7 +49,7 @@ class nodeSelector {
     /**
      * Returns the node array, based on selector
      * @param string $selector The selector, passed in constructor
-     * @throws \pYaml\Exception\nodeNotFoundException
+     * @throws Zolli\pYaml\Exception\nodeNotFoundException
      */
     private function getNodeBySelector($selector) {
         $selectorParts = explode(".", $selector);
@@ -60,7 +60,7 @@ class nodeSelector {
                 $result = $result["$part"];
             } else {
                 $this->errorNode = $part;
-                throw new \pYaml\Exception\nodeNotFoundException($part, $selector);
+                throw new nodeNotFoundException($part, $selector);
             }
         }
         
@@ -103,7 +103,7 @@ class nodeSelector {
         try {
             $this->getNodeBySelector($select);
             return (boolean) true;
-        } catch(\pYaml\Exception\nodeNotFoundException $e) {
+        } catch(nodeNotFoundException $e) {
             return (boolean) false;
         }
     }

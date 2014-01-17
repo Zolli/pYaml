@@ -1,7 +1,8 @@
-<?php
-namespace pYaml\Exception;
+<?php namespace Zolli\pYaml\Exception;
 
-class nodeNotFoundException extends \Exception {
+use \Exception;
+
+class nodeNotFoundException extends Exception {
 
     /**
      * The selector part caused the problem

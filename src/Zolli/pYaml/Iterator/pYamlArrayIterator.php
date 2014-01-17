@@ -1,7 +1,8 @@
-<?php
-namespace pYaml\Iterator;
+<?php namespace Zolli\pYaml\Iterator;
 
-class pYamlArrayIterator implements \Iterator {
+use \Iterator;
+
+class pYamlArrayIterator implements Iterator {
 
     /**
      * The current position in array
@@ -43,7 +44,7 @@ class pYamlArrayIterator implements \Iterator {
 
     /**
      * Rewind the current position by one
-     * @return \pYaml\Iterator\pYamlArrayIterator
+     * @return Zolli\pYaml\Iterator\pYamlArrayIterator
      */
     function rewind() {
         if($this->position > 0) {
@@ -71,7 +72,7 @@ class pYamlArrayIterator implements \Iterator {
     
     /**
      * Moves the iterator to the next element if has next
-     * @return \pYaml\Iterator\pYamlArrayIterator
+     * @return Zolli\pYaml\Iterator\pYamlArrayIterator
      */
     function next() {
         if($this->position < $this->length) {
