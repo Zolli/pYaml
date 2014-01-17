@@ -2,3 +2,4 @@ composer.lock
 /vendor/*
 *.orig
 .idea
+out.yaml

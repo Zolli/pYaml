@@ -1,7 +1,9 @@
-<?php
-namespace pYaml\Access;
+<?php namespace Zolli\pYaml\Access;
 
-class pYamlArray implements \pYaml\Interfaces\IpYamlArrayAccess {
+use Zolli\pYaml\Interfaces\IpYamlArrayAccess;
+use Zolli\pYaml\Iterator\pYamlArrayIterator;
+
+class pYamlArray implements IpYamlArrayAccess {
     
     /**
      * Hold the constructor value
@@ -48,10 +50,10 @@ class pYamlArray implements \pYaml\Interfaces\IpYamlArrayAccess {
     /**
      * Gets iterator for this object
      * 
-     * @return \pYaml\Iterator\pYamlArrayIterator
+     * @return Zolli\pYaml\Iterator\pYamlArrayIterator
      */
     public function getIterator() {
-        return new \pYaml\Iterator\pYamlArrayIterator($this->array);
+        return new pYamlArrayIterator($this->array);
     }
     
     /**

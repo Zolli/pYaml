@@ -1,5 +1,4 @@
-<?php
-namespace pYaml\Interfaces;
+<?php namespace Zolli\pYaml\Interfaces;
 
 interface IpYamlArrayAccess {
 

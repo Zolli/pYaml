@@ -1,8 +1,9 @@
-<?php
-namespace pYaml;
+<?php namespace Zolli\pYaml;
 
 use Symfony\Component\Yaml\Dumper as Dumper;
 use \Symfony\Component\Yaml\Yaml as YAML;
+use Zolli\pYaml\nodeSelector\nodeSelector;
+use Zolli\pYaml\pYamlSection;
 
 class pYaml {
     
@@ -26,7 +27,7 @@ class pYaml {
      */
     public function __construct($file = null) {
         if($file == null) {
-            throw new Exception("File not found " . $file, 404);
+            throw new Exception("File not found " . $file);
         }
 
         $this->fileName = $file;
@@ -37,10 +38,10 @@ class pYaml {
     
     /**
      * Returns a pYamlSection by the path tree
-     * @param nodeSelector\nodeSelector $path The node location
-     * @return pYamlSection
+     * @param Zolli\pYaml\nodeSelector\nodeSelector $path The node location
+     * @return Zolli\pYaml\pYamlSection
      */
-    public function get(nodeSelector\nodeSelector $selector) {
+    public function get(nodeSelector $selector) {
         $selector->setParsedYaml($this->parseResult);
         $result = $selector->getNode();
         $sectionParent = $selector->getParentName();
@@ -51,7 +52,7 @@ class pYaml {
      * Set a key in parsed array by the passed selector
      * @param string $selector Selector string
      * @param mixed $value The key value
-     * @return \pYaml\pYaml
+     * @return Zolli\pYaml\pYaml
      */
     public function set($selector, $value) {
         $selectorParts = explode(".", $selector);
